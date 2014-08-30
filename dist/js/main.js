@@ -1,0 +1,1 @@
+req=requirejs.config({baseUrl:"/js/",deps:["config"]}),req(["app"],function(e){e.start()}),define("main",function(){});
