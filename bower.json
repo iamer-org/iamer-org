@@ -4,7 +4,6 @@
   "devDependencies": {
     "underscore": "~1.7.0",
     "jquery": "~2.1.1",
-    "fullpage.js": "~2.2.1",
     "requirejs": "~2.1.14",
     "normalize-css": "~3.0.1",
     "lesshat": "~3.0.2"
