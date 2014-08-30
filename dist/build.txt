@@ -2,3 +2,9 @@
 js/main.js
 ----------------
 js/main.js
+bower_components/underscore/underscore.js
+bower_components/jquery/dist/jquery.js
+bower_components/fullpage.js/vendors/jquery.easings.min.js
+bower_components/jquery.slimscroll/jquery.slimscroll.js
+bower_components/fullpage.js/jquery.fullPage.js
+js/app.js

@@ -61,9 +61,15 @@ module.exports = function (grunt) {
           , skipDirOptimize: true
           // less is doing this for us
           , optimizeCss: 'none'
-          , include: "main",
-          , name: "../bower_components/almond/almond",
-          , out: "dist.js"         
+          , modules : [
+            {
+              name: "main"
+              , include: ['app']
+            }
+          ]
+          , pragmas : {
+            configExclude : true
+          }    
         }
       }
     },
