@@ -8,18 +8,18 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     
-    project: {
-      src: 'src',
+    yeoman: {
+      app: 'src',
       dist: 'dist'
     },
 
     watch: {
       less : {
-        files : '<%= project.src %>/css/**/*.less',
+        files : '<%= yeoman.app %>/css/**/*.less',
         tasks: ['less:server']
       },
       // bower : {
-      //   files : '<%= project.src %>/bower_components/*',
+      //   files : '<%= yeoman.app %>/bower_components/*',
       //   tasks : ['bower:server']
       // },
       livereload: {
@@ -27,10 +27,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= project.src %>/**/*.html',
-          '<%= project.src %>/css/**/*.css',
-          '<%= project.src %>/<%= js %>/**/*.js',
-          '<%= project.src %>/img/**/*.{gif,jpg,jpeg,png,svg,webp}',
+          '<%= yeoman.app %>/**/*.html',
+          '<%= yeoman.app %>/css/**/*.css',
+          '<%= yeoman.app %>/<%= js %>/**/*.js',
+          '<%= yeoman.app %>/img/**/*.{gif,jpg,jpeg,png,svg,webp}',
         ]
       }
     },
@@ -41,12 +41,12 @@ module.exports = function (grunt) {
           cleancss : true
         },
         files : {
-           '<%= project.src %>/css/main.css' : '<%= project.src %>/css/main.less'         
+           '<%= yeoman.app %>/css/main.css' : '<%= yeoman.app %>/css/main.less'         
         }
       }
       , server : {
         files : {
-           '<%= project.src %>/css/main.css' : '<%= project.src %>/css/main.less'         
+           '<%= yeoman.app %>/css/main.css' : '<%= yeoman.app %>/css/main.less'         
         }
       }
     },
@@ -54,10 +54,10 @@ module.exports = function (grunt) {
     requirejs : {
       dist : {
         options : {
-          appDir : '<%= project.src %>'
+          appDir : '<%= yeoman.app %>'
           , baseUrl : 'js/'
-          , mainConfigFile : '<%= project.src %>/js/config.js'
-          , dir : '<%= project.dist %>'
+          , mainConfigFile : '<%= yeoman.app %>/js/config.js'
+          , dir : '<%= yeoman.dist %>'
           , skipDirOptimize: true
           // less is doing this for us
           , optimizeCss: 'none'
@@ -79,9 +79,9 @@ module.exports = function (grunt) {
 
       },
       server : {
-        rjsConfig : '<%= project.src %>/js/config.js'
+        rjsConfig : '<%= yeoman.app %>/js/config.js'
         , options : {
-          exclude : ['lesshat', 'normalize-css']
+          exclude : ['lesshat', 'normalize-css', 'requirejs']
         }
       }
     },
@@ -97,7 +97,7 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: [
-            '<%= project.src %>'
+            '<%= yeoman.app %>'
           ]
         }
       },
@@ -105,14 +105,14 @@ module.exports = function (grunt) {
         options: {
           open: true,
           base: [
-            '<%= project.dist %>'
+            '<%= yeoman.dist %>'
           ]
         }
       },
       test: {
         options: {
           base: [
-            '<%= project.src %>'
+            '<%= yeoman.app %>'
           ]
         }
       }
@@ -123,19 +123,19 @@ module.exports = function (grunt) {
         files: [{
           dot: true,
           src: [
-            '<%= project.dist %>/*',
+            '<%= yeoman.dist %>/*',
             // Running Jekyll also cleans the target directory.  Exclude any
             // non-standard `keep_files` here (e.g., the generated files
             // directory from Jekyll Picture Tag).
-            '!<%= project.dist %>/.git*'
+            '!<%= yeoman.dist %>/.git*'
           ]
         }]
       }
 
       // this should get used *after* the requirejs build
       , requirejs : [
-        '<%= project.dist %>/bower_components'
-        , '<%= project.dist %>/css/**/*.less'
+        '<%= yeoman.dist %>/bower_components'
+        , '<%= yeoman.dist %>/css/**/*.less'
       ]
 
 

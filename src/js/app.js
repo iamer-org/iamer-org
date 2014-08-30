@@ -1,24 +1,25 @@
 define([
 	'underscore'
 	, 'jquery'
-	, 'jquery.fullpage'
 ], function(
 	_
 	, $
 ) {
 	var exports = {};
 
-	console.log('Main app file loaded', arguments);
+	console.log('Main app file loaded!', arguments);
 
 	exports.start = function () {
-		console.log('Start app');
+		console.log('Start app!');
 
 		$(onDomReady);
 		
 	}
 
 	function onDomReady () {
-		$('#Content').fullpage();
+		console.log('Dom ready!');
+
+		// dom ready stuff
 	}
 
 	return exports;
