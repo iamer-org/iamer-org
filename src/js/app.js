@@ -1,6 +1,7 @@
 define([
 	'underscore'
 	, 'jquery'
+	, 'fullpage'
 ], function(
 	_
 	, $
@@ -19,7 +20,7 @@ define([
 	function onDomReady () {
 		console.log('Dom ready!');
 
-		// dom ready stuff
+		$('#Fullpage').fullpage();
 	}
 
 	return exports;
